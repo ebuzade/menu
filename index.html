@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Menü (PDF Linkleri)</title>
+  <style>
+    /* Genel sayfa stili */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    /* Üst kısım (Header) */
+    header {
+      background-color: #ffc107; /* Marka renginize göre değiştirebilirsiniz */
+      padding: 1rem;
+      text-align: center;
+    }
+    header img {
+      max-width: 100px;
+      border-radius: 50%;
+    }
+    header h1 {
+      margin: 0.5rem 0 0 0;
+      color: #333;
+    }
+
+    /* Navigasyon menüsü */
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    nav ul li {
+      margin: 0;
+    }
+    nav ul li a {
+      display: block;
+      padding: 1rem 1.5rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    nav ul li a:hover {
+      background-color: #ffc107;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    /* Ana içerik alanı */
+    main {
+      max-width: 600px;
+      margin: 1rem auto;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 5px;
+    }
+    main h2 {
+      text-align: center;
+      margin-top: 0;
+      color: #333;
+    }
+
+    /* PDF Link stili */
+    .pdf-link {
+      display: block;
+      background: #ffc107;
+      color: #fff;
+      text-decoration: none;
+      text-align: center;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 5px;
+      font-weight: bold;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+    .pdf-link:hover {
+      background: #ff9800;
+    }
+
+    /* Alt bilgi (Footer) */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Üst Kısım (Header) -->
+  <header>
+    <!-- Logonuzu ekleyebilirsiniz -->
+    <img src="https://drive.google.com/file/d/1xbYB9lc6rZjLe-VhJlLZBUtG_vTHxUMC/view?usp=drive_link" alt="Restoran Logo">
+    <h1>Ebuzade Restoran Özikizler Künefe</h1>
+  </header>
+
+  <!-- Navigasyon Menüsü -->
+  <nav>
+    <ul>
+      <li><a href="#menuler">Menüler</a></li>
+    </ul>
+  </nav>
+
+  <!-- Ana İçerik -->
+  <main id="menuler">
+    <h2>Menülerimiz (PDF)</h2>
+    
+    <!-- Ana Yemekler PDF Linki -->
+    <a class="pdf-link" 
+       href="pdf/ana-yemekler.pdf" 
+       target="https://drive.google.com/file/d/15Dg0vKmgKiQukmruLvT-cyixt5myQswD/view?usp=drive_link"
+       rel="noopener noreferrer">
+       Ana Yemekler (PDF)
+    </a>
+    
+    <!-- Tatlılar PDF Linki -->
+    <a class="pdf-link" 
+       href="pdf/tatlilar.pdf" 
+       target="_blank"
+       rel="noopener noreferrer">
+       Tatlılar (PDF)
+    </a>
+    
+    <!-- İçecekler PDF Linki -->
+    <a class="pdf-link" 
+       href="pdf/icecekler.pdf" 
+       target="_blank"
+       rel="noopener noreferrer">
+       İçecekler (PDF)
+    </a>
+  </main>
+
+  <!-- Alt Bilgi (Footer) -->
+  <footer>
+    © 2025 Ebuzade Özikizler Restoran. Tüm hakları saklıdır.
+  </footer>
+
+</body>
+</html>
