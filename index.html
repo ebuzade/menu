@@ -142,6 +142,11 @@
   </footer>
 
   <script>
+    // Sayfa yüklendiğinde otomatik olarak 'ana' menüyü gösterelim
+    document.addEventListener('DOMContentLoaded', () => {
+      showMenu('ana');
+    });
+
     function showMenu(type) {
       // Gösterim alanını seç
       const container = document.getElementById('menuDisplay');
