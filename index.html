@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QR Menü (PDF Görüntüleme)</title>
+  <title>QR Menü (JPG/PDF Görüntüleme)</title>
   <style>
     /* Genel sayfa stili */
     body {
@@ -14,7 +14,7 @@
 
     /* Üst kısım (Header) */
     header {
-      background-color: #ffc107; /* Marka renginize göre değiştirebilirsiniz */
+      background-color: #ffc107; /* Marka renginize göre */
       padding: 1rem;
       text-align: center;
     }
@@ -27,7 +27,7 @@
       color: #333;
     }
 
-    /* Navigasyon menüsü */
+    /* Navigasyon Menüsü */
     nav {
       display: flex;
       justify-content: center;
@@ -56,7 +56,7 @@
       transition: 0.3s;
     }
 
-    /* Ana içerik alanı */
+    /* Ana İçerik Alanı */
     main {
       max-width: 600px;
       margin: 1rem auto;
@@ -70,7 +70,7 @@
       color: #333;
     }
 
-    /* PDF Buton stili */
+    /* Buton Stili */
     .pdf-button {
       display: inline-block;
       background: #ffc107;
@@ -89,16 +89,17 @@
       background: #ff9800;
     }
 
-    /* iframe stili */
-    .pdf-frame {
-      width: 100%;
-      height: 600px; /* İhtiyaca göre yükseklik */
-      border: none;
+    /* Gösterim Alanı Stili */
+    #menuDisplay {
       margin-top: 1rem;
+      min-height: 600px; /* PDF veya resim görüntülemek için yeterli alan */
+      background: #eee;
+      padding: 1rem;
+      box-sizing: border-box;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
-    /* Alt bilgi (Footer) */
+    /* Alt Bilgi (Footer) */
     footer {
       text-align: center;
       padding: 1rem;
@@ -124,26 +125,15 @@
 
   <!-- Ana İçerik -->
   <main id="menuler">
-    <h2>Menülerimiz (PDF)</h2>
-    
-    <!-- Menü Butonları -->
-    <button class="pdf-button"
-            onclick="showPDF('https://raw.githubusercontent.com/ebuzade/menu/main/Ozikizler%20ebudaze%20-%20Kebap%20Fiyat%20Listesi%202.pdf')">
-      Ana Yemekler
-    </button>
-    
-    <button class="pdf-button"
-            onclick="showPDF('https://raw.githubusercontent.com/ebuzade/menu/main/Tatlilar.pdf')">
-      Tatlılar
-    </button>
-    
-    <button class="pdf-button"
-            onclick="showPDF('https://raw.githubusercontent.com/ebuzade/menu/main/Icecekler.pdf')">
-      İçecekler
-    </button>
+    <h2>Menülerimiz (JPG & PDF)</h2>
 
-    <!-- PDF'in Görüntüleneceği iframe -->
-    <iframe id="pdfFrame" class="pdf-frame"></iframe>
+    <!-- Butonlar -->
+    <button class="pdf-button" onclick="showMenu('ana')">Ana Yemekler</button>
+    <button class="pdf-button" onclick="showMenu('tatli')">Tatlılar</button>
+    <button class="pdf-button" onclick="showMenu('icecek')">İçecekler</button>
+
+    <!-- İçeriğin Gösterileceği Alan -->
+    <div id="menuDisplay"></div>
   </main>
 
   <!-- Alt Bilgi (Footer) -->
@@ -152,9 +142,38 @@
   </footer>
 
   <script>
-    function showPDF(pdfUrl) {
-      // iframe'in src'sini tıklanan butonun URL'sine ayarlar
-      document.getElementById('pdfFrame').src = pdfUrl;
+    function showMenu(type) {
+      // Gösterim alanını seç
+      const container = document.getElementById('menuDisplay');
+      // Önceki içerikleri temizle
+      container.innerHTML = '';
+
+      if (type === 'ana') {
+        // Resim göstermek (JPG)
+        const img = document.createElement('img');
+        img.src = 'https://raw.githubusercontent.com/ebuzade/menu/a5d4fbe9e6f07c24258c9eb601f75bfcf416fd93/Ozikizler%20ebudaze%20-%20Kebap%20Fiyat%20Listesi%202.jpg';
+        img.style.width = '100%';
+        img.style.maxWidth = '600px'; // isterseniz max genişliği sınırlayabilirsiniz
+        container.appendChild(img);
+
+      } else if (type === 'tatli') {
+        // Tatlılar - PDF
+        const iframe = document.createElement('iframe');
+        iframe.src = 'https://raw.githubusercontent.com/ebuzade/menu/main/Tatlilar.pdf';
+        iframe.style.width = '100%';
+        iframe.style.height = '600px';
+        iframe.style.border = 'none';
+        container.appendChild(iframe);
+
+      } else if (type === 'icecek') {
+        // İçecekler - PDF
+        const iframe = document.createElement('iframe');
+        iframe.src = 'https://raw.githubusercontent.com/ebuzade/menu/main/Icecekler.pdf';
+        iframe.style.width = '100%';
+        iframe.style.height = '600px';
+        iframe.style.border = 'none';
+        container.appendChild(iframe);
+      }
     }
   </script>
 
