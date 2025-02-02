@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QR Menü (PDF Linkleri)</title>
+  <title>QR Menü (PDF Görüntüleme)</title>
   <style>
     /* Genel sayfa stili */
     body {
@@ -70,22 +70,32 @@
       color: #333;
     }
 
-    /* PDF Link stili */
-    .pdf-link {
-      display: block;
+    /* PDF Buton stili */
+    .pdf-button {
+      display: inline-block;
       background: #ffc107;
       color: #fff;
       text-decoration: none;
       text-align: center;
-      padding: 1rem;
-      margin: 1rem 0;
+      padding: 0.75rem 1rem;
+      margin: 0.5rem;
       border-radius: 5px;
       font-weight: bold;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       transition: 0.3s;
+      cursor: pointer;
     }
-    .pdf-link:hover {
+    .pdf-button:hover {
       background: #ff9800;
+    }
+
+    /* iframe stili */
+    .pdf-frame {
+      width: 100%;
+      height: 600px; /* İhtiyaca göre yükseklik değeri */
+      border: none;
+      margin-top: 1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
     /* Alt bilgi (Footer) */
@@ -101,7 +111,6 @@
 
   <!-- Üst Kısım (Header) -->
   <header>
-    <!-- Logonuzu ekleyebilirsiniz -->
     <img src="https://raw.githubusercontent.com/ebuzade/menu/30c750a3e084b158307942bee8f65aecc50ec6a2/ozikizler%20kunefe%20logo%202024.png" alt="Restoran Logo">
     <h1>Ebuzade Restoran Özikizler Künefe</h1>
   </header>
@@ -117,35 +126,37 @@
   <main id="menuler">
     <h2>Menülerimiz (PDF)</h2>
     
-    <!-- Ana Yemekler PDF Linki -->
-    <a class="pdf-link" 
-       href="https://raw.githubusercontent.com/ebuzade/menu/main/Ozikizler%20ebudaze%20-%20Kebap%20Fiyat%20Listesi%202.pdf" 
-       target="_blank"
-       rel="noopener noreferrer">
-       Ana Yemekler (PDF)
-    </a>
+    <!-- Menü Butonları -->
+    <button class="pdf-button"
+            onclick="showPDF('https://raw.githubusercontent.com/ebuzade/menu/main/Ozikizler%20ebudaze%20-%20Kebap%20Fiyat%20Listesi%202.pdf')">
+      Ana Yemekler
+    </button>
     
-    <!-- Tatlılar PDF Linki -->
-    <a class="pdf-link" 
-       href="pdf/tatlilar.pdf" 
-       target="_blank"
-       rel="noopener noreferrer">
-       Tatlılar (PDF)
-    </a>
+    <button class="pdf-button"
+            onclick="showPDF('https://raw.githubusercontent.com/ebuzade/menu/main/Tatlilar.pdf')">
+      Tatlılar
+    </button>
     
-    <!-- İçecekler PDF Linki -->
-    <a class="pdf-link" 
-       href="pdf/icecekler.pdf" 
-       target="_blank"
-       rel="noopener noreferrer">
-       İçecekler (PDF)
-    </a>
+    <button class="pdf-button"
+            onclick="showPDF('https://raw.githubusercontent.com/ebuzade/menu/main/Icecekler.pdf')">
+      İçecekler
+    </button>
+
+    <!-- PDF'in Görüntüleneceği iframe -->
+    <iframe id="pdfFrame" class="pdf-frame"></iframe>
   </main>
 
   <!-- Alt Bilgi (Footer) -->
   <footer>
     © 2025 Ebuzade Özikizler Restoran. Tüm hakları saklıdır.
   </footer>
+
+  <script>
+    function showPDF(pdfUrl) {
+      // iframe'in src'sini tıklanan butonun URL'sine ayarlar
+      document.getElementById('pdfFrame').src = pdfUrl;
+    }
+  </script>
 
 </body>
 </html>
