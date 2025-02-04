@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QR Menü (JPG/PDF Görüntüleme)</title>
+  <title>QR Menü Örneği</title>
   <style>
     /* Genel sayfa stili */
     body {
@@ -14,7 +14,7 @@
 
     /* Üst kısım (Header) */
     header {
-      background-color: #ffc107; /* Marka renginize göre */
+      background-color: #ffc107; /* Marka renginize göre değiştirebilirsiniz */
       padding: 1rem;
       text-align: center;
     }
@@ -27,7 +27,7 @@
       color: #333;
     }
 
-    /* Navigasyon Menüsü */
+    /* Navigasyon menüsü */
     nav {
       display: flex;
       justify-content: center;
@@ -56,7 +56,7 @@
       transition: 0.3s;
     }
 
-    /* Ana İçerik Alanı */
+    /* Ana içerik alanı */
     main {
       max-width: 600px;
       margin: 1rem auto;
@@ -64,42 +64,38 @@
       background: #fff;
       border-radius: 5px;
     }
-    main h2 {
-      text-align: center;
-      margin-top: 0;
+    section {
+      margin-bottom: 2rem;
+    }
+    section h2 {
+      border-bottom: 2px solid #ffc107;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
       color: #333;
+      font-size: 1.5rem;
     }
 
-    /* Buton Stili */
-    .pdf-button {
-      display: inline-block;
-      background: #ffc107;
-      color: #fff;
-      text-decoration: none;
-      text-align: center;
-      padding: 0.75rem 1rem;
-      margin: 0.5rem;
-      border-radius: 5px;
-      font-weight: bold;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      transition: 0.3s;
-      cursor: pointer;
-    }
-    .pdf-button:hover {
-      background: #ff9800;
-    }
-
-    /* Gösterim Alanı Stili */
-    #menuDisplay {
-      margin-top: 1rem;
-      min-height: 600px; /* PDF veya resim görüntülemek için yeterli alan */
-      background: #eee;
+    /* Menü ürün kartları */
+    .menu-item {
+      background: #fafafa;
+      margin-bottom: 1rem;
       padding: 1rem;
-      box-sizing: border-box;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      border-radius: 5px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    .menu-item h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+    .menu-item p {
+      margin: 0.5rem 0;
+      color: #666;
+    }
+    .menu-item span {
+      font-weight: bold;
     }
 
-    /* Alt Bilgi (Footer) */
+    /* Alt bilgi (Footer) */
     footer {
       text-align: center;
       padding: 1rem;
@@ -112,75 +108,86 @@
 
   <!-- Üst Kısım (Header) -->
   <header>
-    <img src="https://raw.githubusercontent.com/ebuzade/menu/30c750a3e084b158307942bee8f65aecc50ec6a2/ozikizler%20kunefe%20logo%202024.png" alt="Restoran Logo">
-    <h1>Ebuzade Restoran Özikizler Künefe</h1>
+    <!-- İsterseniz buraya logonuzu ekleyebilirsiniz -->
+    <img src="https://via.placeholder.com/100" alt="Restoran Logo">
+    <h1>Restoran Adınız</h1>
   </header>
 
   <!-- Navigasyon Menüsü -->
   <nav>
     <ul>
-      <li><a href="#menuler">Menüler</a></li>
+      <li><a href="#ana-yemekler">Ana Yemekler</a></li>
+      <li><a href="#tatlilar">Tatlılar</a></li>
+      <li><a href="#icecekler">İçecekler</a></li>
     </ul>
   </nav>
 
   <!-- Ana İçerik -->
-  <main id="menuler">
-    <h2>Menülerimiz</h2>
+  <main>
+    
+    <!-- Ana Yemekler -->
+    <section id="ana-yemekler">
+      <h2>Ana Yemekler</h2>
+      
+      <div class="menu-item">
+        <h3>İskender</h3>
+        <p>Özel sos ve tereyağ ile servis edilir.</p>
+        <span>Fiyat: 70 TL</span>
+      </div>
 
-    <!-- Butonlar -->
-    <button class="pdf-button" onclick="showMenu('ana')">Ana Yemekler</button>
-    <button class="pdf-button" onclick="showMenu('tatli')">Tatlılar</button>
-    <button class="pdf-button" onclick="showMenu('icecek')">İçecekler</button>
+      <div class="menu-item">
+        <h3>Adana Kebap</h3>
+        <p>Acılı kıyma harcıyla hazırlanan, közlenmiş biber ve domatesle servis.</p>
+        <span>Fiyat: 65 TL</span>
+      </div>
+      
+      <div class="menu-item">
+        <h3>Tavuk Şiş</h3>
+        <p>Izgara tavuk, pilav ve salata eşliğinde.</p>
+        <span>Fiyat: 55 TL</span>
+      </div>
+    </section>
+    
+    <!-- Tatlılar -->
+    <section id="tatlilar">
+      <h2>Tatlılar</h2>
+      
+      <div class="menu-item">
+        <h3>Künefe</h3>
+        <p>Tereyağlı kadayıf arası peynir; şerbetli tatlı.</p>
+        <span>Fiyat: 35 TL</span>
+      </div>
 
-    <!-- İçeriğin Gösterileceği Alan -->
-    <div id="menuDisplay"></div>
+      <div class="menu-item">
+        <h3>Baklava</h3>
+        <p>Cevizli ya da fıstıklı seçenekleriyle.</p>
+        <span>Fiyat: 30 TL</span>
+      </div>
+    </section>
+    
+    <!-- İçecekler -->
+    <section id="icecekler">
+      <h2>İçecekler</h2>
+      
+      <div class="menu-item">
+        <h3>Ayran</h3>
+        <p>Geleneksel Türk içeceği.</p>
+        <span>Fiyat: 10 TL</span>
+      </div>
+
+      <div class="menu-item">
+        <h3>Şalgam</h3>
+        <p>Acılı veya sade seçenekleri mevcut.</p>
+        <span>Fiyat: 12 TL</span>
+      </div>
+    </section>
+  
   </main>
 
   <!-- Alt Bilgi (Footer) -->
   <footer>
-    © 2025 Ebuzade Özikizler Restoran. Tüm hakları saklıdır.
+    © 2025 Restoran Adınız. Tüm hakları saklıdır.
   </footer>
-
-  <script>
-    // Sayfa yüklendiğinde otomatik olarak 'ana' menüyü gösterelim
-    document.addEventListener('DOMContentLoaded', () => {
-      showMenu('ana');
-    });
-
-    function showMenu(type) {
-      // Gösterim alanını seç
-      const container = document.getElementById('menuDisplay');
-      // Önceki içerikleri temizle
-      container.innerHTML = '';
-
-      if (type === 'ana') {
-        // Resim göstermek (JPG)
-        const img = document.createElement('img');
-        img.src = 'https://raw.githubusercontent.com/ebuzade/menu/a5d4fbe9e6f07c24258c9eb601f75bfcf416fd93/Ozikizler%20ebudaze%20-%20Kebap%20Fiyat%20Listesi%202.jpg';
-        img.style.width = '100%';
-        img.style.maxWidth = '600px'; // isterseniz max genişliği sınırlayabilirsiniz
-        container.appendChild(img);
-
-      } else if (type === 'tatli') {
-        // Tatlılar - PDF
-        const iframe = document.createElement('iframe');
-        iframe.src = 'https://raw.githubusercontent.com/ebuzade/menu/main/Tatlilar.pdf';
-        iframe.style.width = '100%';
-        iframe.style.height = '600px';
-        iframe.style.border = 'none';
-        container.appendChild(iframe);
-
-      } else if (type === 'icecek') {
-        // İçecekler - PDF
-        const iframe = document.createElement('iframe');
-        iframe.src = 'https://raw.githubusercontent.com/ebuzade/menu/main/Icecekler.pdf';
-        iframe.style.width = '100%';
-        iframe.style.height = '600px';
-        iframe.style.border = 'none';
-        container.appendChild(iframe);
-      }
-    }
-  </script>
 
 </body>
 </html>
