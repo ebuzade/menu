@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QR Menü (10 Farklı JPG)</title>
+  <title>QR Menü (Kunefe 2 sayfa geçişli)</title>
   <style>
     /* Genel sayfa stili */
     body {
@@ -14,7 +14,7 @@
 
     /* Üst kısım (Header) */
     header {
-      background-color: #ffc107; /* Marka renginize göre uyarlayabilirsiniz */
+      background-color: #ffc107;
       padding: 1rem;
       text-align: center;
     }
@@ -27,7 +27,7 @@
       color: #333;
     }
 
-    /* Navigasyon menüsü */
+    /* Navigasyon Menüsü */
     nav {
       display: flex;
       justify-content: center;
@@ -92,12 +92,30 @@
     /* Gösterim alanı */
     #menuDisplay {
       margin-top: 1rem;
-      min-height: 400px; /* Resim için yeterli alan */
+      min-height: 400px;
       background: #eee;
       padding: 1rem;
       box-sizing: border-box;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       text-align: center; 
+    }
+
+    /* Kunefe geçiş butonları */
+    .kunefe-nav {
+      margin-top: 1rem;
+    }
+    .kunefe-nav button {
+      background: #ff9800;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      margin: 0 0.5rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .kunefe-nav button:hover {
+      background: #ff5722;
     }
 
     /* Alt bilgi (Footer) */
@@ -128,7 +146,7 @@
   <main id="menuler">
     <h2>Menülerimiz</h2>
     
-    <!-- 10 Farklı Bölüm İçin Butonlar -->
+    <!-- Kategori Butonları -->
     <div style="text-align: center;">
       <button class="menu-button" onclick="showMenu('kebap')">Kebap Çeşitleri</button>
       <button class="menu-button" onclick="showMenu('lahmacun')">Lahmacun & Pideler</button>
@@ -136,8 +154,7 @@
       <button class="menu-button" onclick="showMenu('kadayif')">Kadayiflar</button>
       <button class="menu-button" onclick="showMenu('baklava')">Baklavalar</button>
       <button class="menu-button" onclick="showMenu('katmer')">Katmerler</button>
-      <button class="menu-button" onclick="showMenu('kunefe1')">Kunefeler 1</button>
-      <button class="menu-button" onclick="showMenu('kunefe2')">Kunefeler 2</button>
+      <button class="menu-button" onclick="showMenu('kunefe')">Kunefeler</button>
       <button class="menu-button" onclick="showMenu('dondurma')">Dondurmalar</button>
       <button class="menu-button" onclick="showMenu('icecek')">İçecekler</button>
     </div>
@@ -161,61 +178,90 @@
       const container = document.getElementById('menuDisplay');
       container.innerHTML = ''; // Önceki içerikleri temizle
 
-      // Her kategoriye, ilgili JPG'yi gösterelim
-      let imgSrc = '';
-
       if (type === 'kebap') {
-        // Kebap Çeşitleri
-        // Örnek: 
-        imgSrc = 'https://raw.githubusercontent.com/kullaniciadiniz/repo/main/Kebap%20Cesitleri%20Ebuzade%20menu%2004-02-25-10.jpg';
+        createImage(container, 
+          'https://raw.githubusercontent.com/ebuzade/menu/551df5516d8bae06e3ac6e00a6a78d189d906a46/Kebap%20Cesitleri%20Ebuzade%20menu%2004-02-25-10.jpg');
       
       } else if (type === 'lahmacun') {
-        // Lahmacun & Pideler
-        imgSrc = 'https://raw.githubusercontent.com/kullaniciadiniz/repo/main/Lahmacun%20pideler%20Ebuzade%20menu%2004-02-25-09.jpg';
+        createImage(container, 
+          'https://raw.githubusercontent.com/ebuzade/menu/551df5516d8bae06e3ac6e00a6a78d189d906a46/Lahmacun%20pideler%20Ebuzade%20menu%2004-02-25-09.jpg');
 
       } else if (type === 'izgara') {
-        // Izgaralar & Burgerlar
-        imgSrc = 'https://raw.githubusercontent.com/kullaniciadiniz/repo/main/izgaralar%20burgerlar%20Ebuzade%20menu%2004-02-25-08.jpg';
+        createImage(container, 
+          'https://raw.githubusercontent.com/ebuzade/menu/551df5516d8bae06e3ac6e00a6a78d189d906a46/izgaralar%20burgerlar%20Ebuzade%20menu%2004-02-25-08.jpg');
 
       } else if (type === 'kadayif') {
-        // Kadayiflar
-        imgSrc = 'https://raw.githubusercontent.com/kullaniciadiniz/repo/main/kadayiflar%20Ebuzade%20menu%2004-02-25-02.jpg';
+        createImage(container, 
+          'https://raw.githubusercontent.com/ebuzade/menu/551df5516d8bae06e3ac6e00a6a78d189d906a46/kadayiflar%20Ebuzade%20menu%2004-02-25-02.jpg');
 
       } else if (type === 'baklava') {
-        // Baklavalar
-        imgSrc = 'https://raw.githubusercontent.com/kullaniciadiniz/repo/main/Baklavalar%20Ebuzade%20menu%2004-02-25-03.jpg';
+        createImage(container, 
+          'https://raw.githubusercontent.com/ebuzade/menu/551df5516d8bae06e3ac6e00a6a78d189d906a46/Baklavalar%20Ebuzade%20menu%2004-02-25-03.jpg');
 
       } else if (type === 'katmer') {
-        // Katmerler
-        imgSrc = 'https://raw.githubusercontent.com/kullaniciadiniz/repo/main/katmerler%20Ebuzade%20menu%2004-02-25-05.jpg';
+        createImage(container, 
+          'https://raw.githubusercontent.com/ebuzade/menu/551df5516d8bae06e3ac6e00a6a78d189d906a46/katmerler%20Ebuzade%20menu%2004-02-25-05.jpg');
 
-      } else if (type === 'kunefe1') {
-        // Kunefeler 1
-        imgSrc = 'https://raw.githubusercontent.com/kullaniciadiniz/repo/main/kunefeler%201%20Ebuzade%20menu%2004-02-25-07.jpg';
+      } else if (type === 'kunefe') {
+        // Kunefe 2 sayfa geçiş
+        const kunefeImages = [
+          'https://raw.githubusercontent.com/ebuzade/menu/551df5516d8bae06e3ac6e00a6a78d189d906a46/kunefeler%201%20Ebuzade%20menu%2004-02-25-07.jpg',
+          'https://raw.githubusercontent.com/ebuzade/menu/551df5516d8bae06e3ac6e00a6a78d189d906a46/kunefeler%202%20Ebuzade%20menu%2004-02-25-06.jpg'
+        ];
+        let currentIndex = 0;
 
-      } else if (type === 'kunefe2') {
-        // Kunefeler 2
-        imgSrc = 'https://raw.githubusercontent.com/kullaniciadiniz/repo/main/kunefeler%202%20Ebuzade%20menu%2004-02-25-06.jpg';
+        const kunefeContainer = document.createElement('div');
+        kunefeContainer.style.display = 'flex';
+        kunefeContainer.style.flexDirection = 'column';
+        kunefeContainer.style.alignItems = 'center';
+
+        const kunefeImg = document.createElement('img');
+        kunefeImg.src = kunefeImages[currentIndex];
+        kunefeImg.style.width = '100%';
+        kunefeImg.style.maxWidth = '600px';
+
+        const navDiv = document.createElement('div');
+        navDiv.classList.add('kunefe-nav');
+
+        const prevBtn = document.createElement('button');
+        prevBtn.textContent = 'Önceki';
+        prevBtn.onclick = () => {
+          currentIndex = (currentIndex - 1 + kunefeImages.length) % kunefeImages.length;
+          kunefeImg.src = kunefeImages[currentIndex];
+        };
+
+        const nextBtn = document.createElement('button');
+        nextBtn.textContent = 'Sonraki';
+        nextBtn.onclick = () => {
+          currentIndex = (currentIndex + 1) % kunefeImages.length;
+          kunefeImg.src = kunefeImages[currentIndex];
+        };
+
+        navDiv.appendChild(prevBtn);
+        navDiv.appendChild(nextBtn);
+
+        kunefeContainer.appendChild(kunefeImg);
+        kunefeContainer.appendChild(navDiv);
+        container.appendChild(kunefeContainer);
 
       } else if (type === 'dondurma') {
-        // Dondurmalar
-        imgSrc = 'https://raw.githubusercontent.com/kullaniciadiniz/repo/main/dondurmalar%20Ebuzade%20menu%2004-02-25-04.jpg';
+        createImage(container, 
+          'https://raw.githubusercontent.com/ebuzade/menu/551df5516d8bae06e3ac6e00a6a78d189d906a46/dondurmalar%20Ebuzade%20menu%2004-02-25-04.jpg');
 
       } else if (type === 'icecek') {
-        // İçecekler
-        imgSrc = 'https://raw.githubusercontent.com/kullaniciadiniz/repo/main/icecekler%20Ebuzade%20menu%2004-02-25-01.jpg';
-      }
-
-      // <img> oluşturup ekleyelim
-      if (imgSrc) {
-        const img = document.createElement('img');
-        img.src = imgSrc;
-        img.style.width = '100%';       // mobil uyumlu
-        img.style.maxWidth = '600px';   // aşırı genişlikten korumak için
-        container.appendChild(img);
+        createImage(container, 
+          'https://raw.githubusercontent.com/ebuzade/menu/551df5516d8bae06e3ac6e00a6a78d189d906a46/icecekler%20Ebuzade%20menu%2004-02-25-01.jpg');
       }
     }
-  </script>
 
+    // Tek bir resim göstermek için yardımcı fonksiyon:
+    function createImage(container, imageUrl) {
+      const img = document.createElement('img');
+      img.src = imageUrl;
+      img.style.width = '100%';
+      img.style.maxWidth = '600px';
+      container.appendChild(img);
+    }
+  </script>
 </body>
 </html>
